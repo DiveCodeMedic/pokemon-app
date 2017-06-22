@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
     <head>
-        <title></title>
+        <title>Pokedex</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap-theme.css">
+        
     </head>
-    <body>
-    <h1> Pokedex</h1>
+    <body ng-controller="PokemonController as pokemonCtrl">
+        <div class='container' style='margin-top:2em'>
+            <h1> Pokedex</h1>
+        </div>
+
+            <ul class='list-group'>
+                <li class='list-group-item' ng-repeat="pokemon in pokemonCtrl.pokemon">{{pokemon.name}}
+                </li>
+            </ul>
+            </div>
+        
+
+        <script src="bower_components\angular\angular.js"></script>
+        <script src="bower_components\bootstrap\dist\js\bootstrap.js"></script>
+        <script src="app\app\app.module.js"></script>
+        <script src="app\pokemon\pokemon.controller.js"></script>
+        <script src="app\core\pokemon.factory.js"></script>
+        
+
     </body>
 </html>
