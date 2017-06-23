@@ -5,9 +5,20 @@
         .module('app')
         .controller('PokemonController', PokemonController)
 
-    PokemonController.$inject = [];
+    PokemonController.$inject = ['pokemonFactory'];
 
-    function PokemonController() {
+    function PokemonController(pokemonFactory) {
         var vm = this;
+
+        activate();
+
+        function activate() {
+            pokemonFactory
+                .getAllPokemon()
+                .then(function(pokemon){
+                   vm.pokemon = pokemon;
+                 });   
+        }
+    
     }
 })();

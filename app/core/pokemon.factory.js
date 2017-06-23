@@ -16,8 +16,22 @@
         return service;
 
         function getAllPokemon() {
+            return $http
+            .get('http://pokemon.origincodeacademy.com/api/v2/pokemon')
+            .then(function(response) {
+                return response.data.results;
+            });
          }
 
-         function getPokemonById(id)
+        //  getPokemonById(1) // bulbasaur
+        //  getPokemonById(2) //
+
+         function getPokemonById(id){
+            return $http
+            .get('http://pokemon.origincodeacademy.com/api/v2/pokemon' + id)
+            .then(function(response) {
+                return response.data;
+            });
+         }
     }
 })();
